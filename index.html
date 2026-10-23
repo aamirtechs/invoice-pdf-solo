@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invoice PDF Solo: Create professional invoice, quote and receipt PDFs free with no sign-up, no watermark and no cap</title>
+<meta name="description" content="Create professional invoice, quote and receipt PDFs free with no sign-up, no watermark and no cap. Tax-inclusive or exclusive maths, multi-currency and local history.">
+<meta name="keywords" content="free invoice generator no sign up, invoice generator PDF no watermark, create invoice online free unlimited, invoice maker tax inclusive">
+<meta name="author" content="Amir Hussain"><meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aamirtechs.github.io/invoice-pdf-solo/"><link rel="icon" href="favicon.svg"><meta name="theme-color" content="#0b1f3a">
+<meta property="og:type" content="website"><meta property="og:title" content="Invoice PDF Solo"><meta property="og:description" content="Create professional invoice, quote and receipt PDFs free with no sign-up, no watermark and no cap. Tax-inclusive or exclusive maths, multi-currency and local history."><meta property="og:url" content="https://aamirtechs.github.io/invoice-pdf-solo/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Invoice PDF Solo"><meta name="twitter:description" content="Create professional invoice, quote and receipt PDFs free with no sign-up, no watermark and no cap. Tax-inclusive or exclusive maths, multi-currency and local history.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1f3a;--navy2:#122c50;--gold:#d4a72c;--ink:#16233a;--muted:#5a6a84;--line:#e3e9f2;--bg:#f6f8fb;--card:#ffffff}
+*{box-sizing:border-box} body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:40px 20px 30px;text-align:center}
+header h1{font-family:Sora,sans-serif;font-size:2.1rem;margin:0 0 10px} header h1 span{color:var(--gold)}
+header p{max-width:720px;margin:0 auto 14px;opacity:.92;line-height:1.55}
+.stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.stats span{background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px;font-size:.85rem}
+main{max-width:960px;margin:0 auto;padding:24px 16px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 4px 18px rgba(11,31,58,.06)}
+label{font-weight:700;font-size:.9rem;display:block;margin:12px 0 5px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font:inherit}
+textarea{min-height:110px} .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:700px){.row{grid-template-columns:1fr}}
+.btn-run{background:var(--gold);color:#16233a;border:0;padding:12px 22px;border-radius:9px;font-weight:800;cursor:pointer;margin-top:16px}
+.btn-ghost{background:#fff;border:1px solid var(--line);padding:10px 16px;border-radius:9px;cursor:pointer;font-weight:700}
+pre{background:#0b1f3a;color:#eaf0fa;padding:14px;border-radius:10px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:.85rem}
+.privacy{color:var(--muted);font-size:.9rem;margin-top:12px}
+section.features{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:18px}
+footer{background:var(--navy);color:#dbe6f5;text-align:center;padding:26px 16px;line-height:1.6} footer a{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:.9rem} th,td{border-bottom:1px solid var(--line);padding:7px;text-align:left}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Invoice PDF Solo","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Amir Hussain","url":"https://aamirtechs.com"},"url":"https://aamirtechs.github.io/invoice-pdf-solo/"}</script>
+</head><body><header><h1>Invoice <span>PDF</span> Solo</h1><p>A professional invoice PDF in 60 seconds, with no account, no footer branding, no monthly cap, and tax-inclusive or exclusive maths done right.</p><div class="stats"><span>Free</span><span>100% in your browser</span><span>No sign-up</span></div></header><main><div class="card">
+<label>Document type</label><select id="docType"><option value="invoice">Invoice</option><option value="quote">Quote</option><option value="receipt">Receipt</option></select>
+<div class="row"><div><label>Seller / your business</label><input id="seller" placeholder="Your Studio"></div><div><label>Client</label><input id="client" placeholder="Client name"></div></div>
+<div class="row"><div><label>Document number</label><input id="number" value="INV-0001"></div><div><label>Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>PKR</option><option>INR</option><option>AED</option></select></div></div>
+<label>Logo (local only, optional)</label><input type="file" id="logo" accept="image/*">
+<label>Line items (one per line: description | qty | unit price)</label><textarea id="items">Design work | 2 | 150
+Hosting setup | 1 | 40</textarea>
+<div class="row"><div><label>Discount type</label><select id="dType"><option value="none">None</option><option value="percent">Percent</option><option value="fixed">Fixed amount</option></select></div><div><label>Discount value</label><input id="dVal" type="number" value="0"></div></div>
+<div class="row"><div><label>Tax rate %</label><input id="taxRate" type="number" value="0"></div><div><label>Tax mode</label><select id="taxMode"><option value="exclusive">Tax exclusive (added on top)</option><option value="inclusive">Tax inclusive (already in prices)</option></select></div></div>
+<button class="btn-run" id="run">Preview totals</button> <button class="btn-ghost" id="pdf">Download PDF</button> <button class="btn-ghost" id="save">Save to history</button> <button class="btn-ghost" id="dup">Duplicate last</button>
+<pre id="out">Totals will appear here.</pre>
+<label>History (last 50, this device only)</label><pre id="hist">No saved documents yet.</pre>
+<button class="btn-ghost" id="exp">Export history JSON</button> <label style="display:inline">Import <input type="file" id="imp" accept=".json" style="width:auto"></label>
+<p class="privacy">Runs 100% in your browser. Your files never leave this device.</p></div>
+<section class="features"><h2>How it works</h2><ul><li>Form with live preview and a local-only logo upload for the PDF header.</li><li>Line items, discount and a tax exclusive or inclusive toggle with multi-currency formatting.</li><li>Invoice, quote and receipt types, each with its own numbering sequence.</li><li>PDF download via pdf-lib with no branding, plus local history with duplicate and JSON export or import.</li></ul></section>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="src/logic.js"></script>
+<script>
+var L=window.InvoicePdfSolo;
+function readInv(){var items=document.getElementById("items").value.split("\n").filter(Boolean).map(function(l){var p=l.split("|");return{description:(p[0]||"").trim(),qty:Number(p[1])||0,unitPrice:Number(p[2])||0};});
+return{docType:document.getElementById("docType").value,seller:document.getElementById("seller").value,client:document.getElementById("client").value,number:document.getElementById("number").value,currency:document.getElementById("currency").value,items:items,discountType:document.getElementById("dType").value,discountValue:Number(document.getElementById("dVal").value),taxRate:Number(document.getElementById("taxRate").value),taxInclusive:document.getElementById("taxMode").value==="inclusive"};}
+function hist(){try{return JSON.parse(localStorage.getItem("ips-history")||"[]");}catch(e){return[];}}
+function showHist(){var h=hist();document.getElementById("hist").textContent=h.length?h.map(function(x){return x.number+" "+x.docType+" "+x.client+" "+L.formatCurrency(x.total,x.currency);}).join("\n"):"No saved documents yet.";}
+document.getElementById("run").onclick=function(){var inv=readInv();var errs=L.validateInvoice(inv);if(errs.length){document.getElementById("out").textContent=errs.join("\n");return;}var t=L.computeTotals(inv.items,inv);document.getElementById("out").textContent="Subtotal: "+L.formatCurrency(t.subtotal,inv.currency)+"\nDiscount: "+L.formatCurrency(t.discount,inv.currency)+"\nTax ("+t.taxRate+"%"+(t.taxInclusive?", inclusive":", exclusive")+"): "+L.formatCurrency(t.taxAmount,inv.currency)+"\nTotal: "+L.formatCurrency(t.total,inv.currency);};
+document.getElementById("save").onclick=function(){var inv=readInv();var t=L.computeTotals(inv.items,inv);var h=hist();h.unshift(Object.assign({},inv,{total:t.total}));localStorage.setItem("ips-history",JSON.stringify(h.slice(0,50)));document.getElementById("number").value=L.nextNumber(h.map(function(x){return x.number;}),inv.docType);showHist();};
+document.getElementById("dup").onclick=function(){var h=hist();if(!h.length)return;var c=Object.assign({},h[0]);c.number=L.nextNumber(h.map(function(x){return x.number;}),c.docType);document.getElementById("number").value=c.number;document.getElementById("client").value=c.client||"";};
+document.getElementById("exp").onclick=function(){var b=new Blob([JSON.stringify(hist(),null,2)],{type:"application/json"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="invoice-history.json";a.click();};
+document.getElementById("imp").onchange=function(e){var f=e.target.files[0];if(!f)return;f.text().then(function(t){localStorage.setItem("ips-history",t);showHist();});};
+document.getElementById("pdf").onclick=async function(){var inv=readInv();if(typeof PDFLib==="undefined"){alert("PDF library still loading, try again in a moment.");return;}var plan=L.pdfPlan(inv);var doc=await PDFLib.PDFDocument.create();var page=doc.addPage([595,842]);var font=await doc.embedFont(PDFLib.StandardFonts.HelveticaBold);var reg=await doc.embedFont(PDFLib.StandardFonts.Helvetica);var y=780;
+page.drawText(plan.title+" "+plan.number,{x:50,y:y,size:20,font:font});y-=28;page.drawText("From: "+plan.seller,{x:50,y:y,size:11,font:reg});y-=16;page.drawText("To: "+plan.client,{x:50,y:y,size:11,font:reg});y-=30;
+plan.lines.forEach(function(l){page.drawText(l.description+"  x"+l.qty+"  "+L.formatCurrency(l.unitPrice,plan.currency)+"  =  "+L.formatCurrency(l.total,plan.currency),{x:50,y:y,size:11,font:reg});y-=18;});
+y-=10;page.drawText("Subtotal: "+L.formatCurrency(plan.totals.subtotal,plan.currency),{x:50,y:y,size:11,font:reg});y-=16;page.drawText("Tax: "+L.formatCurrency(plan.totals.taxAmount,plan.currency),{x:50,y:y,size:11,font:reg});y-=16;page.drawText("Total: "+L.formatCurrency(plan.totals.total,plan.currency),{x:50,y:y,size:13,font:font});
+var bytes=await doc.save();var b=new Blob([bytes],{type:"application/pdf"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=(plan.number||"invoice")+".pdf";a.click();};
+showHist();
+</script></main><footer>Built by Amir Hussain, operations manager and founder of <a href="https://aamirtechs.com" target="_blank" rel="noopener">AamirTechs: operations, customer support and e-commerce services</a>.<br><a href="https://github.com/aamirtechs" target="_blank" rel="noopener">More open source tools on GitHub</a></footer></body></html>

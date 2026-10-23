@@ -1,0 +1,10 @@
+"use strict";
+const test=require("node:test");const assert=require("node:assert/strict");const L=require("../src/logic.js");
+test("line total multiplies qty by price",()=>{assert.equal(L.lineTotal({qty:3,unitPrice:10}),30);assert.equal(L.lineTotal({qty:2,unitPrice:9.99}),19.98);});
+test("exclusive tax adds on top",()=>{const t=L.computeTotals([{qty:1,unitPrice:100}],{taxRate:20,taxInclusive:false});assert.equal(t.subtotal,100);assert.equal(t.taxAmount,20);assert.equal(t.total,120);});
+test("inclusive tax is extracted from the total",()=>{const t=L.computeTotals([{qty:1,unitPrice:120}],{taxRate:20,taxInclusive:true});assert.equal(t.taxAmount,20);assert.equal(t.net,100);assert.equal(t.total,120);});
+test("percent and fixed discounts apply before tax",()=>{const a=L.computeTotals([{qty:1,unitPrice:200}],{discountType:"percent",discountValue:10,taxRate:10});assert.equal(a.discount,20);assert.equal(a.total,198);const b=L.computeTotals([{qty:1,unitPrice:50}],{discountType:"fixed",discountValue:999});assert.equal(b.discount,50);assert.equal(b.total,0);});
+test("currency formatting differs by currency",()=>{assert.match(L.formatCurrency(1234.5,"USD"),/\$1,234\.50/);assert.match(L.formatCurrency(10,"EUR"),/10/);assert.equal(L.formatCurrency(5,"XXX").includes("5.00"),true);});
+test("numbering increments per document type",()=>{assert.equal(L.nextNumber(["INV-0001","INV-0007"],"invoice"),"INV-0008");assert.equal(L.nextNumber(["INV-0009"],"quote"),"QUO-0001");assert.equal(L.docPrefix("receipt"),"REC");});
+test("validation flags missing fields",()=>{assert.ok(L.validateInvoice({docType:"invoice",items:[]}).length>=2);assert.deepEqual(L.validateInvoice({docType:"invoice",seller:"A",client:"B",items:[{qty:1,unitPrice:5}]}),[]);});
+test("pdf plan carries totals and lines",()=>{const p=L.pdfPlan({docType:"quote",seller:"S",client:"C",currency:"USD",items:[{description:"Work",qty:2,unitPrice:25}],taxRate:0});assert.equal(p.title,"QUOTE");assert.equal(p.totals.total,50);assert.equal(p.lines[0].total,50);});
